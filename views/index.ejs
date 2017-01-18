@@ -1,0 +1,28 @@
+<% include partials/header %>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<h1>To Do Items</h1>
+			<ul class="list-group">
+			<% todos.forEach(function(todo){ %>
+				<li class="list-group-item">
+					<span class="lead">
+						<%= todo.item %>
+					</span>
+					<div class="pull-right">
+						<a href="/todos/<%=todo._id%>/edit" class="btn btn-sm btn-warning">Edit</a>
+						<form style="display: inline" method="POST" action="/todos/<%=todo._id%>?_method=DELETE">
+							<button type="submit" class="btn btn-sm btn-danger">Delete</button>
+						</form>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+			<% }); %>
+			</ul>
+			<a href="/todos/new" class="btn btn-primary">New Item</a>
+		</div>
+	</div>
+
+<% include partials/footer %>
+
+
