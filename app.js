@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 app.use(methodOverride('_method'));
 
 var todoSchema = new mongoose.Schema({
-  item: String,
+  text: String,
 });
 
 var Todo = mongoose.model("Todo", todoSchema);
@@ -37,7 +37,7 @@ app.get("/todos/new", function(req, res){
 });
 
 app.post("/todos", function(req, res){
- req.body.todo.item = req.sanitize(req.body.todo.item);
+ req.body.todo.text = req.sanitize(req.body.todo.text);
  var formData = req.body.todo;
  Todo.create(formData, function(err, newTodo){
     if(err){
@@ -82,5 +82,5 @@ app.delete("/todos/:id", function(req, res){
 
 
 app.listen(3000 || process.env.PORT, process.env.IP, function() {
-  console.log('Server Running');
+  console.log('Server running on port 3000');
 });

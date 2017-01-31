@@ -5,8 +5,8 @@
 		<h1>Edit Item</h1>
 		<form action="/todos/<%=todo._id%>?_method=PUT" method="POST">
 			<div class="form-group">
-				<label>Item</label>
-				<input type="text" value="<%= todo.item %>" name="todo[item]" class="form-control">
+				<label>Item Text</label>
+				<input type="text" value="<%= todo.text %>" name="todo[text]" class="form-control">
 			</div>
 			<button class="btn btn-primary">Update Item</button>
 		</form>
