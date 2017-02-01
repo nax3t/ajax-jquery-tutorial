@@ -27,7 +27,11 @@ app.get("/todos", function(req, res){
     if(err){
       console.log(err);
     } else {
-      res.render("index", {todos: todos}); 
+      if(req.xhr) {
+        res.json(todos);
+      } else {
+        res.render("index", {todos: todos}); 
+      }
     }
   })
 });
@@ -43,7 +47,11 @@ app.post("/todos", function(req, res){
     if(err){
       res.render("new");
     } else {
-        res.redirect("/todos");
+        if(req.xhr) {
+          res.json(newTodo);
+        } else {
+          res.redirect("/todos");
+        }
     }
   });
 });
