@@ -16,11 +16,18 @@
 			<ul class="list-group" id="todo-list">
 			<% todos.forEach(function(todo){ %>
 				<li class="list-group-item">
+					<form action="/todos/<%=todo._id%>" method="POST" class="edit-item-form">
+						<div class="form-group">
+							<label>Item Text</label>
+							<input type="text" value="<%= todo.text %>" name="todo[text]" class="form-control">
+						</div>
+						<button class="btn btn-primary">Update Item</button>
+					</form>
 					<span class="lead">
 						<%= todo.text %>
 					</span>
 					<div class="pull-right">
-						<a href="/todos/<%=todo._id%>/edit" class="btn btn-sm btn-warning">Edit</a>
+						<button class="btn btn-sm btn-warning edit-button">Edit</button>
 						<form style="display: inline" method="POST" action="/todos/<%=todo._id%>">
 							<button type="submit" class="btn btn-sm btn-danger">Delete</button>
 						</form>
