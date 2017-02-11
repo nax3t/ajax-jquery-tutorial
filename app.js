@@ -64,15 +64,11 @@ app.get("/todos/:id/edit", function(req, res){
 });
 
 app.put("/todos/:id", function(req, res){
- Todo.findByIdAndUpdate(req.params.id, req.body.todo, function(err, todo){
+ Todo.findByIdAndUpdate(req.params.id, req.body.todo, {new: true}, function(err, todo){
    if(err){
      console.log(err);
    } else {
-      if(req.xhr) {
-        res.json(todo);
-      } else {
-        res.redirect('/');
-      }
+      res.json(todo);
    }
  });
 });
