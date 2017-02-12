@@ -6,8 +6,8 @@
 			<h1>New Item</h1>
 			<form action="/todos" method="POST" id="new-todo-form">
 				<div class="form-group">
-					<label>Item Text</label>
-					<input type="text" name="todo[text]" class="form-control">
+					<label for="new-item">Item Text</label>
+					<input type="text" name="todo[text]" class="form-control" placeholder="Walk the dog" id="new-item">
 				</div>
 				<button class="btn btn-primary">Create Item</button>
 			</form>
@@ -18,8 +18,8 @@
 				<li class="list-group-item">
 					<form action="/todos/<%=todo._id%>" method="POST" class="edit-item-form">
 						<div class="form-group">
-							<label>Item Text</label>
-							<input type="text" value="<%= todo.text %>" name="todo[text]" class="form-control">
+							<label for="<%=todo._id%>">Item Text</label>
+							<input type="text" value="<%= todo.text %>" name="todo[text]" class="form-control" id="<%=todo._id%>">
 						</div>
 						<button class="btn btn-primary">Update Item</button>
 					</form>

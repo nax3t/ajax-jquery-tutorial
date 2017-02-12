@@ -1,7 +1,9 @@
+/* Move content out from beneath bootstrap navbar */
 body {
   padding-top: 80px;
 }
 
+/* Hide to do item edit forms on page load */
 .edit-item-form {
 	display: none;
 }
