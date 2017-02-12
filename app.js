@@ -78,11 +78,7 @@ app.delete("/todos/:id", function(req, res){
    if(err){
      console.log(err);
    } else {
-      if (req.xhr) {
-        res.json(todo);
-      } else {
-        res.redirect("/todos");
-      }
+      res.json(todo);
    }
  }); 
 });
