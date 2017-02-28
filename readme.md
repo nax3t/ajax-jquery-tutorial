@@ -6,3 +6,7 @@
 - Install `nodemon` globally (if you don't already have it installed) with `npm i -g nodemon`
 - Run your application in its own terminal tab with `nodemon`
 - Navigate to `localhost:3000` in your browser
+
+### Additional resources
+
+- Click [here](search.md) for search functionality instructions

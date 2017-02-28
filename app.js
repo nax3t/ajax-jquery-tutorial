@@ -1,9 +1,9 @@
 var express = require("express"),
-app     = express(),
-mongoose = require("mongoose"),
-bodyParser = require("body-parser"),
-expressSanitizer = require("express-sanitizer"),
-methodOverride = require('method-override');
+    app     = express(),
+    mongoose = require("mongoose"),
+    bodyParser = require("body-parser"),
+    expressSanitizer = require("express-sanitizer"),
+    methodOverride = require('method-override');
 
 mongoose.connect("mongodb://localhost/todo_app");
 app.use(express.static('public'));
@@ -22,18 +22,34 @@ app.get("/", function(req, res){
   res.redirect("/todos");
 });
 
+// function to be used in the .get("/todos"..) route
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
 app.get("/todos", function(req, res){
-  Todo.find({}, function(err, todos){
-    if(err){
-      console.log(err);
-    } else {
-      if(req.xhr) {
-        res.json(todos);
+  if(req.query.keyword) {
+    const regex = new RegExp(escapeRegex(req.query.keyword), 'gi');
+    Todo.find({ text: regex }, function(err, todos){
+      if(err){
+        console.log(err);
       } else {
-        res.render("index", {todos: todos}); 
+        res.json(todos);
       }
-    }
-  })
+    });
+  } else {
+    Todo.find({}, function(err, todos){
+      if(err){
+        console.log(err);
+      } else {
+        if(req.xhr) {
+          res.json(todos);
+        } else {
+          res.render("index", {todos: todos}); 
+        }
+      }
+    });
+  }
 });
 
 app.get("/todos/new", function(req, res){
@@ -82,7 +98,6 @@ app.delete("/todos/:id", function(req, res){
    }
  }); 
 });
-
 
 app.listen(3000, function() {
   console.log('Server running on port 3000');
