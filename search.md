@@ -1,10 +1,10 @@
-#Tutorial
-##Search functionalty with AJAX
+# Tutorial
+## Search functionalty with AJAX
 ###### by Ian Schoonover
 
 ----
 
-###Update view markup
+### Update view markup
 - Open /views/partials/header.ejs
 - Replace div with `id="navbar" class="collapse navbar-collapse"` with the following:
 
@@ -18,7 +18,7 @@
 </div><!--/.nav-collapse -->
 ```
 
-###Update server-side JS
+### Update server-side JS
 - Open /app.js
 - Add the following function before the app.get('/todos', ..) route:
 
@@ -65,7 +65,7 @@ app.get("/todos", function(req, res){
 });
 ```
 
-###Update client-side JS
+### Update client-side JS
 - Open /public/js/ajax.js (or /src/ajax.js if you're transpiling with gulp & babel)
 - Add the following code to the bottom of your ajax.js script:
 
