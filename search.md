@@ -74,7 +74,7 @@ app.get("/todos", function(req, res){
 
 $('#search').on('input', function(e) {
 	e.preventDefault();
-	$.get(`/todos?keyword=${e.target.value}`, function(data) {
+  $.get(`/todos?keyword=${encodeURIComponent(e.target.value)}`, function(data) {
 		$('#todo-list').html('');
 		data.forEach(function(todo){
 			$('#todo-list').append(
