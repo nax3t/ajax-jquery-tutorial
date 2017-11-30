@@ -16,4 +16,4 @@ app.listen(process.env.PORT, process.env.IP, function(){
 });
 ```
 
-- Now run your server with node app.js and view the app from the Preview tab in your workspace
+- Now run your server with `node app.js` or `nodemon` and view the app from the Preview tab in your workspace
