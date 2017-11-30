@@ -84,3 +84,8 @@ app.delete("/todos/:id", function(req, res){
 app.listen(3000, function() {
   console.log('Server running on port 3000');
 });
+
+// // Uncomment the three lines of code below and comment out or remove lines 84 - 86 if using cloud9
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("The server has started!");
+// });
