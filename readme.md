@@ -8,7 +8,7 @@
 - Run your application in its own terminal tab with `nodemon`
 - Navigate to `localhost:3000` in your browser
 
-*Note: If you're working from c9 then see below:
+*Note: If you're working from c9 or GoormIDE then see below:
 - Change the following lines at the bottom of app.js:
 
 ```JS
